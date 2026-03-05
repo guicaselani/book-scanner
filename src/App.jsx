@@ -226,7 +226,7 @@ Use "Not identified" if title unknown, "Not found" if author unknown.`
           </div>
           {library.length > 0 && (
             <button className="library-btn" onClick={() => setShowLibrary(true)}>
-              📚 Minha lista <span className="library-count-badge">{library.length}</span>
+              Minha lista <span className="library-count-badge">{library.length}</span>
             </button>
           )}
         )}
@@ -248,7 +248,7 @@ Use "Not identified" if title unknown, "Not found" if author unknown.`
                   </div>
                   <div className="saved-item-actions">
                     <button className={`copy-btn${copiedId === book.id ? " copied" : ""}`} onClick={() => copyBook(book)}>
-                      {copiedId === book.id ? "✓ copiado" : "copiar"}
+                      {copiedId === book.id ? "Copiado" : "copiar"}
                     </button>
                     <button className="rm-btn" onClick={() => setLibrary(p => p.filter(b => b.id !== book.id))}>×</button>
                   </div>
@@ -272,7 +272,7 @@ Use "Not identified" if title unknown, "Not found" if author unknown.`
             )}
             <div className="actions">
               <button className="btn btn-primary" onClick={analyze} disabled={!b64}>
-                ✦ Identificar Livro
+                Identificar Livro
               </button>
               <button className="btn btn-ghost" onClick={reset}>Trocar</button>
             </div>
@@ -307,7 +307,7 @@ Use "Not identified" if title unknown, "Not found" if author unknown.`
               <div className="result-actions">
                 <button className="btn btn-primary" disabled={saved}
                   onClick={() => { setLibrary(p => [...p, { ...result, id: Date.now() }]); setSaved(true); }}>
-                  {saved ? "✓ Salvo" : "Salvar na lista"}
+                  {saved ? "Salvo" : "Salvar na lista"}
                 </button>
                 <button className="btn btn-ghost" onClick={reset}>Nova leitura</button>
               </div>
@@ -330,7 +330,7 @@ Use "Not identified" if title unknown, "Not found" if author unknown.`
                 </div>
                 <div className="saved-item-actions">
                   <button className="copy-btn" onClick={() => copyBook(book)}>
-                    {copiedId === book.id ? "✓ copiado" : "copiar"}
+                    {copiedId === book.id ? "Copiado" : "copiar"}
                   </button>
                   <button className="rm-btn" onClick={() => setLibrary(p => p.filter(b => b.id !== book.id))}>×</button>
                 </div>
