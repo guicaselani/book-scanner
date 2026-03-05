@@ -211,24 +211,26 @@ Use "Not identified" if title unknown, "Not found" if author unknown.`
         </div>
 
         {!image && (
-          <div
-            className={`upload-zone ${dragOver ? "drag-over" : ""}`}
-            onClick={() => fileRef.current.click()}
-            onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
-            onDragLeave={() => setDragOver(false)}
-            onDrop={(e) => { e.preventDefault(); setDragOver(false); processFile(e.dataTransfer.files[0]); }}
-          >
-            <div className="upload-icon">📖</div>
-            <div className="upload-text">Arraste ou clique para enviar</div>
-            <div className="upload-sub">Foto da capa, lombada ou página</div>
-            <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }}
-              onChange={(e) => processFile(e.target.files[0])} />
-          </div>
-          {library.length > 0 && (
-            <button className="library-btn" onClick={() => setShowLibrary(true)}>
-              Minha lista <span className="library-count-badge">{library.length}</span>
-            </button>
-          )}
+          <>
+            <div
+              className={`upload-zone ${dragOver ? "drag-over" : ""}`}
+              onClick={() => fileRef.current.click()}
+              onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+              onDragLeave={() => setDragOver(false)}
+              onDrop={(e) => { e.preventDefault(); setDragOver(false); processFile(e.dataTransfer.files[0]); }}
+            >
+              <div className="upload-icon">📖</div>
+              <div className="upload-text">Arraste ou clique para enviar</div>
+              <div className="upload-sub">Foto da capa, lombada ou página</div>
+              <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }}
+                onChange={(e) => processFile(e.target.files[0])} />
+            </div>
+            {library.length > 0 && (
+              <button className="library-btn" onClick={() => setShowLibrary(true)}>
+                Minha lista <span className="library-count-badge">{library.length}</span>
+              </button>
+            )}
+          </>
         )}
 
         {showLibrary && (
